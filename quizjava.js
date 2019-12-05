@@ -1,33 +1,33 @@
 
 var questions [
     { 
-      title: "this will be the first question",
-      choices: ["choice a", "choice b", "choice c", "choice d"],
-      answer: ["choice a"]
+      title: "Which of the following is not one of the three main programming languages of the web?",
+      choices: ["HTML", "CSS", "Javascript", "Python"],
+      answer: ["Python"]
      },
     
      { 
-      title: "this will be the second question",
-      choices: ["choice a", "choice b", "choice c", "choice d"],
-      answer: ["choice a"]
+      title: "Which of the following better describes Javascript?",
+      choices: ["Dynamic", "Static"],
+      answer: ["Dynamic"]
      },
     
      { 
-      title: "this will be the third question",
-      choices: ["choice a", "choice b", "choice c", "choice d"],
-      answer: ["choice a"]
+      title: "Which of the following better describes HTML?",
+      choices: ["Dynamic", "Static"],
+      answer: ["Static"]
      },
     
      { 
-      title: "this will be the fourth question",
-      choices: ["choice a", "choice b", "choice c", "choice d"],
-      answer: ["choice a"]
+      title: "Which of the following is a Javascript Library?",
+      choices: ["Ren'Py", "C++", "JQuery", "Bootstrap"],
+      answer: ["JQuery"]
      },
     
      { 
-      title: "this will be the fifth question",
-      choices: ["choice a", "choice b", "choice c", "choice d"],
-      answer: ["choice a"]
+      title: "Which of the following is a CSS library?",
+      choices: ["JQuery", "Bootstrap", "DonaCode", "Git"],
+      answer: ["Bootstrap"]
      }
     ]
     

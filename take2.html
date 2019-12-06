@@ -1,28 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" type ="text/css" href="styling.css">
     <script src="quizjava.js"></script>
   <meta charset="UTF-8">
   <title>Quiz</title>
 </head>
 <body>
 
-      <div class=main;>
+      <div id="landingpage" class=main;>
         <h2> Welcome! This is a coding quiz.</h2>
         <p> Try to answer each of the following questions accurlatley but as quickly as you can.</p>
         <p> When you're ready, press the "start" button to begin.</p>
         <button id=start;> Start </button>
       </div>
 
+      <div id="questions" class="hide">
+        <h2 id=questionTitle></h2>
+          <div id="choices" class = "choices"></div>
+      </div>
 
-- your intro blurb
-- the game-start 
-- the conclusion message
+      <div id="resultScreen" class="hide">
+        <h2>All finished!</h2>
+        <p>Your final score is <span id="finalScore"></span></p>
+        <p> Enter initials: <input type="text" id="initials" max="3" />
+            <button id="submit">Submit</button>
+        </p>
+      </div>
 
-  //have your landing page first.
-  //And a start button.
-  //Then, a function that triggers the questions.
-  //Then a timer function.
+    </script>
+
+  </body>
+  
+      <!-- Create a function targeting the start button from line 14. It should hide the div with id "landing page".
+
+  //timer
   //function to validate right or wrong; reduce time or not reduce time. (if-else statement)
   //Another if-else: if no more questions go to result screen, if there are questions then go to the next one.
 
@@ -43,9 +55,3 @@ for(var i = 0; i < questions.length; i++) { }
 //How do I add an event listener so that the next question pops up and the previous one disappears, once someone selects an answer??
 
 addEventListener("click", questions.length, i++)
-
-
-
-</script>
-
-</body>

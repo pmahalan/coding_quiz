@@ -33,20 +33,30 @@ var questions = [
 </div>
 */
 
-
 function displayQuestion() {
     var questioncontainer = document.createElement("div");
 questioncontainer.setAttribute("class", "question");
 
+//create a for-loop to go over each index of "ans" array
+//within for-loop, create a button which displays the text of the index
+
+for (var i=0; i<questions[currentquestion].ans.length; i++) {
+    var choice = document.createElement("button");
+    choice.textContent = questions[currentquestion].ans[i];
+    questioncontainer.appendChild(choice);
+
+    //the line above is displaying ALL the choices as one string :( I need them EACH to be seperate buttons
+}
+
 var questionsentence = document.createElement("p");
 questionsentence.textContent = questions[currentquestion].q
 
-
-//create a for-loop to go over each index of "ans" array
-//within for-loop, create a button which displays the text of the index
 //append button to question container.
-//
 
 questioncontainer.appendChild(questionsentence);
 questiondisplay.appendChild(questioncontainer);
+
 }
+
+//make a second function for handling the answer.
+//then, add the second function as an event, to be appended to the button via an event listener.

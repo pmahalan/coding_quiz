@@ -27,6 +27,7 @@ var currentquestion = 0
 startbutton.addEventListener("click",function(){
     welcomebox.remove ()  
     displayQuestion()  
+    setTime();
 })
 //when the "start" button is clicked (beneath the intro message), the welcome message is removed. 
 //Then, the function "displayQuestion" is called.
@@ -58,6 +59,45 @@ function displayQuestion() {
 
 //________________________________________________________________________________________________
 
+var timeEl = document.querySelector(".time");
+var mainEl = document.getElementById("timedisplay");
+//see lines 22-25 of your HTML.
+
+var secondsLeft = 75;
+
+function setTime() {
+  var timerInterval = setInterval(function() {
+    secondsLeft--;
+    timeEl.textContent = secondsLeft;
+    //If functioning correctly, the function above should display the time counting down from 75.
+
+    if(secondsLeft === 0) {
+      clearInterval(timerInterval);
+      //'clearInterval' ensures that the timer doesn't keep counting down to negative numbers after it reaches zero.
+      sendMessage();
+      //this is calling the function which will display your 'time's up' message!
+    }
+
+  }, 1000);
+  //'1000' on line 19 ensures that it counts with 1000 milliseconds to each second, so that it doesn't go super slow or fast.
+}
+
+function sendMessage() {
+  timeEl.textContent = " ";
+
+    var timesup = document.createElement("p");
+    //creating a p element to display the mssage.
+    timesup.textContent = "Time is up!"
+    // giving text content to that message
+
+    var timemessage = document.getElementById(timedisplay)
+    //creating a new variable, 'timemessage', targeting the timedisplay area on your HTML page.
+    timemessage.append(timesup)
+    //appending that variable to the paragraph where the timesup message will be displayed.
+}
+
+//________________________________________________________________________________________________
+
 function checkanswer(answer) {
     if (answer === questions[currentquestion].a) {
         alert("correct!")
@@ -65,11 +105,9 @@ function checkanswer(answer) {
     } else {
         alert("incorrect")
         // same here!
+        secondsLeft-=15
     }
 }
-
-//________________________________________________________________________________________________
-
 
 //________________________________________________________________________________________________
 // finally -- see line 51! (write code to progress through the questions.)

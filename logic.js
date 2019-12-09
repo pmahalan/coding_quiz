@@ -39,6 +39,7 @@ function displayQuestion() {
     for(var i=0; i<questions[currentquestion].ans.length; i++) {
     var choice = document.createElement("button");
     choice.textContent = questions[currentquestion].ans[i];
+    choice.setAttribute("onclick", "checkanswer('"+questions[currentquestion].ans[i]+"')")
     questioncontainer.appendChild(choice);
     }
     //Above is a for-loop which goes over each index of "ans" array and makes button for each of the possible answers.
@@ -62,12 +63,26 @@ function displayQuestion() {
 // the change/iteration should occur with an event (add event listener) of the clicking of an answer.
 // the code below is my first stab at it... let's see if it works!
 
-choice.addEventListener("click", function() {
-    nextQuestion()  
-    })
+// choice.addEventListener("click", function() {
+//     nextQuestion()  
+//     })
 
 function nextQuestion() {
     for(var z=0; z<questions[currentquestion].length; z++) {
         questioncontainer.appendChild(currentquestion);
         }
     }
+
+    function checkanswer(answer) {
+        
+        if (answer === questions[currentquestion].a) {
+            alert("correct!")
+            // you can make code here to go to the next question (regardless of correct or incorrect)
+        } else {
+        alert("incorrect")
+        //same here
+        }
+    }
+
+    //create an on-click event within each button.
+    // first create a function to display correct or incorrect depending on what they select, and subtracting time

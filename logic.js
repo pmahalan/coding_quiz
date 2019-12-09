@@ -63,7 +63,7 @@ var timeEl = document.querySelector(".time");
 var mainEl = document.getElementById("timedisplay");
 //see lines 22-25 of your HTML.
 
-var secondsLeft = 9;
+var secondsLeft = 75;
 
 function setTime() {
   var timerInterval = setInterval(function() {
@@ -104,20 +104,19 @@ function checkanswer(answer) {
         currentquestion++
         // you can make code here to go to the next question!! (regardless of correct or incorrect)
         displayQuestion() 
+        choice.addEventListener("click", function(){
+            currentquestion.remove()  
+        })
+
     } else {
         alert("incorrect")
         currentquestion++
         secondsLeft-=15
         // same here!
-        displayQuestion() 
-    }  
+        displayQuestion()   
+        choice.addEventListener("click", function(){
+            currentquestion.remove()  
+        })
+    } 
+
 }
-//we're calling the function 'sendMessage', but it doesn't seem to be doing anything right now.
-
-// upon the timer reaching zero, we need to write code that hides the questions div 
-//and displays a new "ending" message telling them time is up!
-
-//startbutton.addEventListener("click",function(){
-//    welcomebox.remove ()  
-//    displayQuestion()  
-//    setTime();

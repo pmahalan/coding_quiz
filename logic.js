@@ -63,7 +63,7 @@ var timeEl = document.querySelector(".time");
 var mainEl = document.getElementById("timedisplay");
 //see lines 22-25 of your HTML.
 
-var secondsLeft = 75;
+var secondsLeft = 9;
 
 function setTime() {
   var timerInterval = setInterval(function() {
@@ -89,10 +89,10 @@ function sendMessage() {
     //creating a p element to display the mssage.
     timesup.textContent = "Time is up!"
     // giving text content to that message
-
-    var timemessage = document.getElementById(timedisplay)
+    
+    var timemessage = document.getElementById("timedisplay")
     //creating a new variable, 'timemessage', targeting the timedisplay area on your HTML page.
-    timemessage.append(timesup)
+    timemessage.appendChild(timesup)
     //appending that variable to the paragraph where the timesup message will be displayed.
 }
 
@@ -110,12 +110,14 @@ function checkanswer(answer) {
         secondsLeft-=15
         // same here!
         displayQuestion() 
-    }
+    }  
 }
+//we're calling the function 'sendMessage', but it doesn't seem to be doing anything right now.
 
+// upon the timer reaching zero, we need to write code that hides the questions div 
+//and displays a new "ending" message telling them time is up!
 
-// upon the timer reaching zero, we need to write code that hides the questions div and displays a new "ending" message telling them time is up.
-
-
-//________________________________________________________________________________________________
-// finally -- see line 51! (write code to progress through the questions.)
+//startbutton.addEventListener("click",function(){
+//    welcomebox.remove ()  
+//    displayQuestion()  
+//    setTime();

@@ -1,19 +1,8 @@
 var startbutton = document.querySelector("#start");
 var welcomebox = document.querySelector(".main");
-var currentquestion = 0
 
 var questiondisplay =document.getElementById("allthequestions")
-
-startbutton.addEventListener("click",function(){
-    welcomebox.remove ()  
-    displayQuestion()  
-})
-
-//the function above works!!! We wanted to add an event listener for "click" such that 
-//the welcome message disappears once the user clicks the start button, and it works.
-
-//now, we need for the first set of questions+answers from our array to be displayed.
-//there are 5 indeces in our array: 0, 1, 2, 3 and 4.
+//the variable above, "questiondisplay", is the div in which each question is going to render.
 
 var questions = [
     { q: "Which of the following is not one of the three main programming languages of the web?", ans:["HTML", "CSS", "Javascript", "Python"], a: "Python" },
@@ -22,6 +11,8 @@ var questions = [
     { q: "Which of the following is a Javascript Library?", ans:["Ren'Py", "C++", "JQuery", "Bootstrap"], a: "JQuery" },
     { q: "Which of the following is a CSS Library?", ans:["JQuery", "Bootstrap", "DonaCode", "Git"], a: "Bootstrap" }
 ];
+
+var currentquestion = 0
 
 /*
 <div class="question">
@@ -33,30 +24,50 @@ var questions = [
 </div>
 */
 
+startbutton.addEventListener("click",function(){
+    welcomebox.remove ()  
+    displayQuestion()  
+})
+//when the "start" button is clicked (beneath the intro message), the welcome message is removed. 
+//Then, the function "displayQuestion" is called.
+
 function displayQuestion() {
     var questioncontainer = document.createElement("div");
-questioncontainer.setAttribute("class", "question");
+    questioncontainer.setAttribute("class", "question");
+    //the function above allows a space to be created (a div) where we're going to display "questions".
 
-//create a for-loop to go over each index of "ans" array
-//within for-loop, create a button which displays the text of the index
-
-for (var i=0; i<questions[currentquestion].ans.length; i++) {
+    for(var i=0; i<questions[currentquestion].ans.length; i++) {
     var choice = document.createElement("button");
     choice.textContent = questions[currentquestion].ans[i];
     questioncontainer.appendChild(choice);
+    }
+    //Above is a for-loop which goes over each index of "ans" array and makes button for each of the possible answers.
 
-    //the line above is displaying ALL the choices as one string :( I need them EACH to be seperate buttons
+    var questionsentence = document.createElement("p");
+    questionsentence.textContent = questions[currentquestion].q
+    //the 2 lines of code above are supposed to create some space (a paragraph line) for EACH question to be displayed, not just the first one in the array.
+    //since we assign the text content of the variable "questionsentence" equal to "q" from the array (see array), 
+    //we need the variable "currentquestion" to be equal to 1, 2, 3 and 4 (in turns) rather than just zero!!! (see line 15)
+
+    questioncontainer.appendChild(questionsentence);
+    //the line above appends the sentence with the question to its div container.
+    questiondisplay.appendChild(questioncontainer);
+    //and this one enables the questions to be displayed where they're supposed to.
 }
 
-var questionsentence = document.createElement("p");
-questionsentence.textContent = questions[currentquestion].q
+//line 46:
+//next steps
+// for each "q", we need a for-loop to go through each iteration.
+// better yet, the for-loop should iterate through each index of the "questions" array, not just "q".
+// the change/iteration should occur with an event (add event listener) of the clicking of an answer.
+// the code below is my first stab at it... let's see if it works!
 
-//append button to question container.
+choice.addEventListener("click", function() {
+    nextQuestion()  
+    })
 
-questioncontainer.appendChild(questionsentence);
-questiondisplay.appendChild(questioncontainer);
-
-}
-
-//make a second function for handling the answer.
-//then, add the second function as an event, to be appended to the button via an event listener.
+function nextQuestion() {
+    for(var z=0; z<questions[currentquestion].length; z++) {
+        questioncontainer.appendChild(currentquestion);
+        }
+    }

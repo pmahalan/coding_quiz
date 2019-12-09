@@ -101,25 +101,21 @@ function sendMessage() {
 function checkanswer(answer) {
     if (answer === questions[currentquestion].a) {
         alert("correct!")
+        currentquestion++
         // you can make code here to go to the next question!! (regardless of correct or incorrect)
+        displayQuestion() 
     } else {
         alert("incorrect")
-        // same here!
+        currentquestion++
         secondsLeft-=15
+        // same here!
+        displayQuestion() 
     }
 }
 
+
+// upon the timer reaching zero, we need to write code that hides the questions div and displays a new "ending" message telling them time is up.
+
+
 //________________________________________________________________________________________________
 // finally -- see line 51! (write code to progress through the questions.)
-
-// choice.addEventListener("click", function() {
-//     nextQuestion()  
-//     })
-
-// or...?
-
-//  function nextQuestion() {
-//  for(var z=0; z<questions[currentquestion].length; z++) {
-//    questioncontainer.appendChild(currentquestion);
-//      }
-//   }

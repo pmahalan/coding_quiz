@@ -14,15 +14,15 @@ var questions = [
 
 var currentquestion = 0
 
-/*
-<div class="question">
-    <p>Which of the following is not one of the three main programming languages of the web?</p>
-    <button class="answer">HTML</button>
-    <button class="answer">CSS</button>
-    <button class="answer">Javascript</button>
-    <button class="answer">Python</button>
-</div>
-*/
+    /*
+    <div class="question">
+        <p>Which of the following is not one of the three main programming languages of the web?</p>
+        <button class="answer">HTML</button>
+        <button class="answer">CSS</button>
+        <button class="answer">Javascript</button>
+        <button class="answer">Python</button>
+    </div>
+    */
 
 startbutton.addEventListener("click",function(){
     welcomebox.remove ()  
@@ -48,7 +48,7 @@ function displayQuestion() {
     questionsentence.textContent = questions[currentquestion].q
     //the 2 lines of code above are supposed to create some space (a paragraph line) for EACH question to be displayed, not just the first one in the array.
     //since we assign the text content of the variable "questionsentence" equal to "q" from the array (see array), 
-    //we need the variable "currentquestion" to be equal to 1, 2, 3 and 4 (in turns) rather than just zero!!! (see line 15)
+    //our last step is going to be setting "currentquestion" equal to 1, 2, 3 and 4 (in turns) rather than just zero!!! (see line 15)
 
     questioncontainer.appendChild(questionsentence);
     //the line above appends the sentence with the question to its div container.
@@ -56,33 +56,32 @@ function displayQuestion() {
     //and this one enables the questions to be displayed where they're supposed to.
 }
 
-//line 46:
-//next steps
-// for each "q", we need a for-loop to go through each iteration.
-// better yet, the for-loop should iterate through each index of the "questions" array, not just "q".
-// the change/iteration should occur with an event (add event listener) of the clicking of an answer.
-// the code below is my first stab at it... let's see if it works!
+//________________________________________________________________________________________________
+
+function checkanswer(answer) {
+    if (answer === questions[currentquestion].a) {
+        alert("correct!")
+        // you can make code here to go to the next question!! (regardless of correct or incorrect)
+    } else {
+        alert("incorrect")
+        // same here!
+    }
+}
+
+//________________________________________________________________________________________________
+
+
+//________________________________________________________________________________________________
+// finally -- see line 51! (write code to progress through the questions.)
 
 // choice.addEventListener("click", function() {
 //     nextQuestion()  
 //     })
 
-function nextQuestion() {
-    for(var z=0; z<questions[currentquestion].length; z++) {
-        questioncontainer.appendChild(currentquestion);
-        }
-    }
+// or...?
 
-    function checkanswer(answer) {
-        
-        if (answer === questions[currentquestion].a) {
-            alert("correct!")
-            // you can make code here to go to the next question (regardless of correct or incorrect)
-        } else {
-        alert("incorrect")
-        //same here
-        }
-    }
-
-    //create an on-click event within each button.
-    // first create a function to display correct or incorrect depending on what they select, and subtracting time
+//  function nextQuestion() {
+//  for(var z=0; z<questions[currentquestion].length; z++) {
+//    questioncontainer.appendChild(currentquestion);
+//      }
+//   }

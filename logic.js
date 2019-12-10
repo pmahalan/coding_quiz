@@ -41,7 +41,7 @@ function displayQuestion() {
     var choice = document.createElement("button");
     choice.textContent = questions[currentquestion].ans[i];
     choice.setAttribute("onclick", "checkanswer('"+questions[currentquestion].ans[i]+"')")
-    questioncontainer.appendChild(choice);
+    questioncontainer.append(choice);
     }
     //Above is a for-loop which goes over each index of "ans" array and makes button for each of the possible answers.
 
@@ -81,6 +81,11 @@ function setTime() {
   }, 1000);
   //'1000' on line 19 ensures that it counts with 1000 milliseconds to each second, so that it doesn't go super slow or fast.
 }
+
+function scoreMessage() {
+    alert("You got a score of" + secondsLeft + " .");
+}
+
 
 function sendMessage() {
   timeEl.textContent = " ";

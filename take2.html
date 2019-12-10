@@ -8,22 +8,39 @@
 </head>
 <body id="body">
 
-      <div id="landingpage" class="main" style="margin-top: 150px;">
+    <div class="row">
+        <div class="col-sm-12">
+            <p> </p>
+        </div>
+    </div>
+<!-- The above is a deliberatley empty row I want to be at the top of the page, to provide for some whitespace. -->
+
+
+      <div id="landingpage" class="main" class="row" style="margin-top: 70px;">
         <h2> Welcome! This is a coding quiz.</h2>
         <p> Try to answer each of the following questions accurlatley but as quickly as you can.</p>
         <p> When you're ready, press the "start" button to begin.</p>
         <button id="start"> Start </button>
       </div>
 
-      <div id="questions" class="hide">
-        <h2 id=questionTitle></h2>
-          <div id="choices" class = "choices"></div>
+      <div class="row">
+          <div class="col-sm-12">
+              <p> </p>
+          </div>
       </div>
+  <!-- More deliberatley blank space. -->
 
-      <div id="timer">
-        <h1 class="time"></h1>
-        <div id="timedisplay"></div>
-      </div>
+  <div id="questions" class="hide" class="row">
+      <h2 id=questionTitle></h2>
+        <div id="choices" class="choices" class="row"></div>
+    </div>
+  <!-- I need to figure out how to get the choices to appear beneath the question >:( -->
+  <!-- As long as the answer buttons are being appended to their div container the way they are, there's nothing I can do here to make them appear underneath.-->
+
+  <div id="timer">
+      <h1 class="time" style="padding: 20x; margin: 70px; border: 20px;"></h1>
+      <div id="timedisplay"></div>
+    </div>
 
       <div id="resultScreen" class="hide">
         <h2>All finished!</h2>
